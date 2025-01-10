@@ -1,0 +1,22 @@
+{
+    "name": "administrador/sysburguer",
+    "description": "Proyecto PHP 8",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "MVC\\" : "./",
+            "Controllers\\" : "./controllers",
+            "Model\\" : "./models",
+            "Classes\\" : "./classes"
+        }
+    },
+    "authors": [
+        {
+            "name": "Daniel Leota",
+            "email": "leota@cryptolab.net"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.5"
+    }
+}
