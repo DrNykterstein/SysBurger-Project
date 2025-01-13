@@ -1,3 +1,3 @@
 # SysBurger-Project
 
-Sistema de Gestion para una hamburgueseria 
+Order Management System for a Burger Restaurant / Sistema de Gestion para una hamburgueseria 
