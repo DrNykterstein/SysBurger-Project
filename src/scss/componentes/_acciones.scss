@@ -1,0 +1,15 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.acciones{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    a{
+        color: v.$primario;
+        padding: 0 7rem 0 7rem;
+        margin-top: 3.5rem;
+        text-align: center;
+    }
+}

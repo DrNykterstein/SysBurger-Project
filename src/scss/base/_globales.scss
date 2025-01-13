@@ -9,8 +9,9 @@ body {
     min-height: 100%;
     display: flex;
     flex-direction: column;
-    background-color: v.$negro;
-    color: v.$blanco;
+    background-color: #020024;
+    color: v.$primario;
+    font-weight: v.$bold;
 }
 *, *:before, *:after {
     box-sizing: inherit;
