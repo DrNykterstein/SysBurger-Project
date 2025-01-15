@@ -14,8 +14,10 @@ class LoginController{
         echo "desde cerrar sesion ";
     }
 
-    public static function recuperar(){
-        echo "desde repecurar contraseña";
+    public static function recuperar(Router $router){
+        $router->render('auth/olvide-contraseña',[
+
+        ]);
     }
 
     public static function mensajeRecuperar(){
