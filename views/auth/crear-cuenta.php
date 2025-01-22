@@ -21,7 +21,7 @@
         <input 
             type="text"
             id="apellido"
-            name="apelldio"
+            name="apellido"
             placeholder="Tu Apellido"
             value="<?php echo s($usuario->apellido);?>"       
         >
@@ -42,8 +42,8 @@
         <label for="correo">Correo</label>
         <input 
             type="email"
-            id="correo"
-            name="correo"
+            id="email"
+            name="email"
             placeholder="Tu Correo Electronico"
             value="<?php echo s($usuario->email);?>"       
         >
