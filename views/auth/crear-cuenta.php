@@ -2,14 +2,17 @@
  <p class="descripcion-pagina">Llena el siguiente Formulario</p>
 
 
- <form action="/crearCuenta" class="formulario" method="/POST">
+
+
+ <form action="/crearCuenta" class="formulario" method="POST">
     <div class="campo">
         <label for="nombre">Nombre</label>
         <input 
             type="text"
             id="nombre"
             name="nombre"
-            placeholder="Tu nombre"     
+            placeholder="Tu nombre"
+            value="<?php echo s($usuario->nombre);?>"     
         >
     </div>
 
@@ -19,7 +22,8 @@
             type="text"
             id="apellido"
             name="apelldio"
-            placeholder="Tu Apellido"     
+            placeholder="Tu Apellido"
+            value="<?php echo s($usuario->apellido);?>"       
         >
     </div>
 
@@ -29,7 +33,8 @@
             type="tel"
             id="telefono"
             name="telefono"
-            placeholder="Tu Telefono"     
+            placeholder="Tu Telefono"
+            value="<?php echo s($usuario->telefono);?>"       
         >
     </div>
 
@@ -39,7 +44,8 @@
             type="email"
             id="correo"
             name="correo"
-            placeholder="Tu Correo Electronico"     
+            placeholder="Tu Correo Electronico"
+            value="<?php echo s($usuario->email);?>"       
         >
     </div>
 
