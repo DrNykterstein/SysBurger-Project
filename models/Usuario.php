@@ -30,5 +30,25 @@ class Usuario extends ActiveRecord{
         $this->token = $args['token'] ?? '';
     }
 
+    //Validacion de usuarios
+    public function validarNuevaCuenta(){
+        if(!$this->nombre){
+             self::$alertas['error'][] = 'El nombre del cliente es obligatorio';
+        }
+        if(!$this->apellido){
+            self::$alertas['error'][] = 'El apellido del cliente es obligatorio';
+        }
+        if(!$this->telefono){
+            self::$alertas['error'][] = 'El telefono del cliente es obligatorio';
+        }
+        if(!$this->email){
+            self::$alertas['error'][] = 'El correo del cliente es obligatorio';
+        }
+        if(!$this->password){
+            self::$alertas['error'][] = 'La contraseña del cliente es obligatoria';
+        }
+        return self::$alertas;
+    }
+
 }
 
