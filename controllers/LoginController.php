@@ -32,7 +32,16 @@ class LoginController{
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $usuario->sincronizar($_POST);
             $alertas = $usuario->validarNuevaCuenta();
-            
+            //Si no hay errores
+            if(empty($alertas)){
+                //Se verifica si el usuario esta registrado o no
+                $resultado=$usuario->existeUsuario();
+                if($resultado->num_rows){
+                    $alertas = Usuario::getAlertas();
+                }else{
+                    
+                }
+            }
 
         }
         //mando para la vista

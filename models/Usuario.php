@@ -33,21 +33,34 @@ class Usuario extends ActiveRecord{
     //Validacion de usuarios
     public function validarNuevaCuenta(){
         if(!$this->nombre){
-             self::$alertas['error'][] = 'El nombre del cliente es obligatorio';
+             self::$alertas['error'][] = 'El nombre  es obligatorio';
         }
         if(!$this->apellido){
-            self::$alertas['error'][] = 'El apellido del cliente es obligatorio';
+            self::$alertas['error'][] = 'El apellido  es obligatorio';
         }
         if(!$this->telefono){
-            self::$alertas['error'][] = 'El telefono del cliente es obligatorio';
+            self::$alertas['error'][] = 'El telefono  es obligatorio';
         }
         if(!$this->email){
-            self::$alertas['error'][] = 'El correo del cliente es obligatorio';
+            self::$alertas['error'][] = 'El correo  es obligatorio';
         }
         if(!$this->password){
-            self::$alertas['error'][] = 'La contraseña del cliente es obligatoria';
+            self::$alertas['error'][] = 'La contraseña  es obligatoria';
+        }
+        if(strlen($this->password) < 6){
+            self::$alertas['error'][] = 'La contraseña debe contener al menos 6 caracteres';
+
         }
         return self::$alertas;
+    }
+    //Metodo para revisar si el correo existe
+    public function existeUsuario(){
+        $query = "SELECT * FROM ".self::$tabla." WHERE email = '".$this->email."' LIMIT 1";
+        $resultado = self::$db->query($query);
+        if($resultado->num_rows){
+            self::$alertas['error'][]='El Correo Electronico ya esta registrado';
+        }
+        return $resultado;
     }
 
 }
