@@ -39,7 +39,11 @@ class LoginController{
                 if($resultado->num_rows){
                     $alertas = Usuario::getAlertas();
                 }else{
-                    
+                    //En caso de que no este registrado
+                    $usuario->hashPassword();
+                    //genero el token 
+                    $usuario->crearToken();
+                    debuguear($usuario);
                 }
             }
 
