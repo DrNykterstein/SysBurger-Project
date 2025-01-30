@@ -43,6 +43,8 @@ class LoginController{
                     $usuario->hashPassword();
                     //genero el token 
                     $usuario->crearToken();
+                    //Mando el correo
+                    
                     debuguear($usuario);
                 }
             }
