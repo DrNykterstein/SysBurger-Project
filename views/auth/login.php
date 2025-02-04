@@ -1,6 +1,7 @@
 <h1 class="nombre-pagina">SysBurguer</h1>
 <p class="descripcion-pagina">Inicia Sesion</p>
 
+<?php include_once __DIR__ . '/../templates/alertas.php'; ?>
 
 <form action="/" method="POST" class="formulario">
     <div class="campo">
