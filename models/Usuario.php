@@ -83,5 +83,14 @@ class Usuario extends ActiveRecord{
         $this->token = uniqid();
     }
 
+    public function comprobarEmailPassword($password){
+        $resultado = password_verify($password,$this->password);
+        if(!($this->confirmado)||!($resultado) ){
+            self::$alertas['error'][]='Contraseña Incorrecta o cuenta no confirmada';
+        }else{
+            return true;
+        }
+    }
+
 }
 
