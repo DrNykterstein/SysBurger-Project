@@ -6,6 +6,11 @@
     width: 100%;
 }
 
+.formulario-pedido{
+    margin-top: 3rem;
+    width: 100%;
+}
+
 .campo{
     display: flex;
     margin-bottom: 3rem;
@@ -21,5 +26,35 @@
         padding: 1rem;
         border-radius: 1rem;
         font-size: 2.1rem;
+        &:disabled{
+            background-color: v.$blanco;
+        }
     }
+}
+
+
+.campo-pedido{
+    display: flex;
+    margin-bottom: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    label{
+        flex: 0 0 22rem;
+        font-size: 1.7rem;
+    }
+    input{
+        flex: 0.3;
+        border: none;
+        padding: 1rem;
+        border-radius: 1rem;
+        font-size: 1.7rem;
+        &:disabled{
+            background-color: v.$blanco;
+        }
+    }
+}
+
+.nombre-pagina-pedido{
+    margin-bottom: 1rem;
+    color: v.$primario;
 }
