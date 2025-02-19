@@ -1,5 +1,12 @@
 <h1 class="nombre-pagina-pedido">Crear Pedido</h1>
 <div class="app">
+    <nav class="tabs">
+        <button type="button" data-paso="1">Menu</button>
+        <button type="button" data-paso="2">Pedido</button>
+        <button type="button" data-paso="3">Resumen</button>
+    </nav>
+
+
     <div id="paso-1" class="seccion">
         <h2>Menu</h2>
         <p class="text-center">Elige el de tu preferencia</p>
