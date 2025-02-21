@@ -1,4 +1,6 @@
 let paso = 1;
+const pasoInicial = 1;
+const pasoFinal = 3;
 
 
 document.addEventListener('DOMContentLoaded',function(){
@@ -9,6 +11,8 @@ function iniciarApp(){
     mostrarSeccion();
     tabs(); //carga el menu
     paginador();
+    paginaSiguiente();
+    paginaAnterior();
 }
 
 function mostrarSeccion(){
@@ -57,4 +61,24 @@ function paginador(){
         paginaAnterior.classList.remove('ocultar');
         paginaSiguiente.classList.remove('ocultar');
     }
+    mostrarSeccion();
+}
+
+function paginaAnterior(){
+    const paginaAnterior = document.querySelector('#anterior');
+    //cuando de click ejecuto la funcion 
+    paginaAnterior.addEventListener('click', function(){
+        if(paso <= pasoInicial) return;
+        paso--;
+        paginador();
+    })
+}
+
+function paginaSiguiente(){
+    const paginaSiguiente = document.querySelector('#siguiente');
+    paginaSiguiente.addEventListener('click', function(){
+        if(paso >= pasoFinal) return;
+        paso++;
+        paginador();
+    })
 }

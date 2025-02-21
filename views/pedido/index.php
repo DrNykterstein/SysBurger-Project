@@ -21,7 +21,7 @@
                 <input
                     id="nombre" 
                     type="text"
-                    placeholder="Tu nombre"
+                    placeholder="<?php echo $nombre; ?>"
                     value="<?php echo $nombre; ?>"
                     disabled
                 >
