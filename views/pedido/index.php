@@ -43,12 +43,12 @@
                 >
             </div>
         </form>
-        <p>Coloca tus datos y fecha de tu pedido</p>
+        <p class="text-center">Coloca tus datos y fecha de tu pedido</p>
     </div>
 
     <div id="paso-3" class="seccion">
         <h2>Resumen</h2>
-        <p>Verificar Informacion</p>
+        <p class="text-center">Verificar Informacion</p>
     </div>
 
 
