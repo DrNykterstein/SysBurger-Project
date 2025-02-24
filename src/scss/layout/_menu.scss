@@ -1,0 +1,32 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.listado-menu{
+    display: grid;
+    gap: 2rem;
+    @include m.tablet{
+        @include m.grid(3,2rem);
+    }
+    .servicio{
+        background-color: v.$blanco;
+        padding: 2.3rem;
+        border-radius: 1rem;
+        transition-property: transform;
+        transition-duration: 251ms;
+        text-align: center;
+        &:hover{
+            transform: scale(1.1);
+        }
+        p{
+            color: v.$primario;
+            margin: 0 0 0.7rem 0;
+        }
+
+        .precio-servicio{
+            color: v.$azul;
+            font-weight: v.$bold;
+            font-size: 2.7rem;
+            margin: 0;
+        }
+    }
+}
