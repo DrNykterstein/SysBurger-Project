@@ -2,6 +2,13 @@ let paso = 1;
 const pasoInicial = 1;
 const pasoFinal = 3;
 
+const pedido = {
+    nombre : '',
+    fecha : '',
+    hora : '',
+    servicios: []
+}
+
 
 document.addEventListener('DOMContentLoaded',function(){
     iniciarApp();
@@ -109,7 +116,9 @@ function mostrarServicios(servicios){
         servicioDiv.classList.add('servicio');
 
         servicioDiv.dataset.idservicios = idservicios;
-        console.log(servicioDiv);
+        servicioDiv.onclick = function(){
+            seleccionarServicio(servicio);
+        }
 
         //Los muestro en pantalla
         servicioDiv.appendChild(nombreServicio);
@@ -118,4 +127,19 @@ function mostrarServicios(servicios){
 
     });
 
+}
+
+function seleccionarServicio(servicio){
+    const {idservicios}=servicio;
+    const {servicios} = pedido;
+    const divServicio = document.querySelector(`[data-idservicios="${idservicios}"]`);
+    //Comprobar si seleccionaron algo del menu
+    if(servicios.some(seleccionado => seleccionado.idservicios === servicio.idservicios)){
+        pedido.servicios = servicios.filter(seleccionado => seleccionado.idservicios !== idservicios);
+        divServicio.classList.remove('seleccionado');
+    }else{
+        pedido.servicios = [...servicios,servicio];
+        divServicio.classList.add('seleccionado');
+    }
+    
 }
