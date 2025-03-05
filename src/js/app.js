@@ -201,6 +201,34 @@ function mostrarResumen(){
         mostrarAlertas('Falta informacion','error','.contenido-resumen',false);
         return;
     }
-    
+
+
+    const {nombre,fecha,hora,servicios} = pedido;
+    const nombreCliente = document.createElement('P');
+    nombreCliente.innerHTML = `<span>Nombre:</span> ${nombre}`;
+    const fechaPedido = document.createElement('P');
+    fechaPedido.innerHTML = `<span>Fecha:</span> ${fecha}`;
+    const horaPedido = document.createElement('P');
+    horaPedido.innerHTML = `<span>Hora:</span> ${hora}`;
+
+    servicios.forEach(servicio => {
+        const{idservicios,precio,nombre} = servicio;
+        const contenedorServicio = document.createElement('DIV');
+        contenedorServicio.classList.add('contenedor-servicio');
+        const textoServicio = document.createElement('P');
+        textoServicio.textContent = nombre;
+        const precioServicio = document.createElement('P');
+        precioServicio.innerHTML = `<span>Precio:</span> $${precio}`;
+        contenedorServicio.appendChild(textoServicio);
+        contenedorServicio.appendChild(precioServicio);
+        //lo muestro en el resumen
+        resumen.appendChild(contenedorServicio);
+    })
+
+    resumen.appendChild(nombreCliente);
+    resumen.appendChild(fechaPedido);
+    resumen.appendChild(horaPedido);
+
+
 }
 
