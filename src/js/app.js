@@ -20,7 +20,11 @@ function iniciarApp(){
     paginador();
     paginaSiguiente();
     paginaAnterior();
-    consultarAPI(); //Consulta la api para el menu 
+    consultarAPI(); //Consulta la api para el menu
+    nombreCliente();
+    seleccionarFecha();
+    seleccionarHora();
+    
 }
 
 function mostrarSeccion(){
@@ -51,7 +55,7 @@ function tabs(){
         boton.addEventListener('click',function(e){
             paso=parseInt(e.target.dataset.paso);
             mostrarSeccion();
-            paginador();
+            paginador(); 
         });
     })
 }
@@ -65,6 +69,7 @@ function paginador(){
     }else if(paso === 3){
         paginaAnterior.classList.remove('ocultar');
         paginaSiguiente.classList.add('ocultar');
+        mostrarResumen();
     }else{
         paginaAnterior.classList.remove('ocultar');
         paginaSiguiente.classList.remove('ocultar');
@@ -143,3 +148,59 @@ function seleccionarServicio(servicio){
     }
     
 }
+
+function nombreCliente(){
+    pedido.nombre = document.querySelector('#nombre').value;
+}
+
+function seleccionarFecha(){
+    const inputFecha = document.querySelector('#fecha');
+    inputFecha.addEventListener('input', function(e){
+        pedido.fecha = e.target.value;
+        
+    });
+}
+function seleccionarHora(){
+    const inputHora = document.querySelector('#hora');
+    inputHora.addEventListener('input', function(e){
+        pedido.hora = e.target.value;
+    })
+}
+
+function mostrarAlertas(mensaje,tipo,elemento,desaparece=true){
+    //Previene que se generen mas de una alerta
+    const alertaPrevia = document.querySelector('.alerta');
+    if(alertaPrevia){
+        alertaPrevia.remove();
+    }
+
+    //crear el html de la aleta
+    const alerta = document.createElement('DIV');
+    alerta.textContent = mensaje;
+    alerta.classList.add('alerta');
+    alerta.classList.add(tipo);
+    // selecciono donde la quiero mostrar la alerta
+    const formulario = document.querySelector(elemento);
+    //Muestro la alerta en pantalla
+    formulario.appendChild(alerta);
+    //Elimino la alerta
+    if(desaparece){
+        setTimeout(()=>{
+            alerta.remove();
+        },3000);
+    }  
+}
+
+
+function mostrarResumen(){
+    const resumen = document.querySelector('.contenido-resumen');
+    while(resumen.firstChild){
+        resumen.removeChild(resumen.firstChild);
+    }
+    if(Object.values(pedido).includes('') || pedido.servicios.length === 0){
+        mostrarAlertas('Falta informacion','error','.contenido-resumen',false);
+        return;
+    }
+    
+}
+

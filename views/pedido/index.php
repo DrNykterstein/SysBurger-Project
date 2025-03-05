@@ -31,7 +31,8 @@
                 <label for="fecha">fecha</label>
                 <input
                     id="fecha" 
-                    type="fecha"
+                    type="date"
+                    min="<?php echo date('Y-m-d'); ?>"
                 >
             </div>
 
@@ -46,7 +47,7 @@
         <p class="text-center">Coloca tus datos y fecha de tu pedido</p>
     </div>
 
-    <div id="paso-3" class="seccion">
+    <div id="paso-3" class="seccion contenido-resumen">
         <h2>Resumen</h2>
         <p class="text-center">Verificar Informacion</p>
     </div>
