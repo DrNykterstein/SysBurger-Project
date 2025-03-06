@@ -229,10 +229,17 @@ function mostrarResumen(){
         resumen.appendChild(contenedorServicio);
     })
 
+    const botonEnviarPedido = document.createElement('BUTTON');
+    botonEnviarPedido.classList.add('boton');
+    botonEnviarPedido.textContent = 'Realizar Pedido';
+    botonEnviarPedido.onclick = realizarPedido;
+
     resumen.appendChild(nombreCliente);
     resumen.appendChild(fechaPedido);
     resumen.appendChild(horaPedido);
-
-
+    resumen.appendChild(botonEnviarPedido);
 }
 
+function realizarPedido(){
+    console.log("Pedido realizado");
+}
