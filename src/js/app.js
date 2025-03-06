@@ -211,6 +211,10 @@ function mostrarResumen(){
     const horaPedido = document.createElement('P');
     horaPedido.innerHTML = `<span>Hora:</span> ${hora}`;
 
+    const tituloMenu = document.createElement('H3');
+    tituloMenu.textContent = 'Resumen del Pedido';
+    resumen.appendChild(tituloMenu);
+
     servicios.forEach(servicio => {
         const{idservicios,precio,nombre} = servicio;
         const contenedorServicio = document.createElement('DIV');
