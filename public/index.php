@@ -31,6 +31,7 @@ $router->get('/mensaje',[LoginController::class, 'mensaje']);
 $router->get('/pedido', [PedidoController::class,'index']);
 //API
 $router->get('/api/servicios',[APIController::class,'index']);
+$router->post('/api/servicios',[APIController::class,'guardar']);
 
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador
 $router->comprobarRutas();

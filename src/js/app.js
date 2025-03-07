@@ -240,6 +240,12 @@ function mostrarResumen(){
     resumen.appendChild(botonEnviarPedido);
 }
 
-function realizarPedido(){
-    console.log("Pedido realizado");
+async function realizarPedido(){
+    const datos = new FormData();
+    datos.append();
+    // Peticion asincrona hacia la api
+    const url = 'http://localhost:3000/api/servicios';
+    const respuesta = await fetch(url,{
+        method: 'POST'
+    });
 }
