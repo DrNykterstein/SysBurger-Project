@@ -241,11 +241,19 @@ function mostrarResumen(){
 }
 
 async function realizarPedido(){
+    const {nombre,fecha,hora,servicios} = pedido;
+    const idservicios = servicios.map(servicio => servicio.idservicios);
     const datos = new FormData();
-    datos.append();
+    datos.append('nombre',nombre);
+    datos.append('fecha',fecha);
+    datos.append('hora',hora);
+    datos.append('servicios',idservicios);
     // Peticion asincrona hacia la api
     const url = 'http://localhost:3000/api/servicios';
     const respuesta = await fetch(url,{
-        method: 'POST'
+        method: 'POST',
+        body: datos
     });
+
+    const resultado = await respuesta.json();
 }

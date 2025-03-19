@@ -3,6 +3,7 @@
 
 namespace Controllers;
 
+use Model\Pedido;
 use Model\Servicio;
 
 class APIController{
@@ -13,10 +14,9 @@ class APIController{
     }
 
     public static function guardar(){
-        $respuesta = [
-            'mensaje' => 'todo bien'
-        ];
-
-        echo json_encode($respuesta);
+        //Creo la instancia del objeto pedido
+        $pedido = new Pedido($_POST);
+        $resultado = $pedido->guardar();
+        echo json_encode($resultado);
     }
 }
