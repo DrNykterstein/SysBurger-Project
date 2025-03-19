@@ -15,7 +15,7 @@ class Pedido extends ActiveRecord{
 
     //constructor
     public function __construct($args = []){
-        $this->idpedidos = $args['idpedidos'] ?? null;
+        $this->idpedidos = $args['idpedidos'];
         $this->fecha = $args['fecha'] ?? '';
         $this->hora = $args['hora'] ?? '';
         $this->usuarioid = $args['usuarioid'] ?? '';

@@ -3,6 +3,8 @@ const pasoInicial = 1;
 const pasoFinal = 3;
 
 const pedido = {
+    idpedidos:'',
+    id:'',
     nombre : '',
     fecha : '',
     hora : '',
@@ -21,10 +23,11 @@ function iniciarApp(){
     paginaSiguiente();
     paginaAnterior();
     consultarAPI(); //Consulta la api para el menu
+    idCliente();
     nombreCliente();
     seleccionarFecha();
     seleccionarHora();
-    
+    generarIdPedido();
 }
 
 function mostrarSeccion(){
@@ -96,6 +99,11 @@ function paginaSiguiente(){
     })
 }
 
+function generarIdPedido() {
+    // Genera un número aleatorio entre 10000 y 99999
+    pedido.idpedidos = Math.floor(10000 + Math.random() * 90000);
+}
+
 async function consultarAPI(){
     try {
         const url = 'http://localhost:3000/api/servicios';
@@ -147,6 +155,10 @@ function seleccionarServicio(servicio){
         divServicio.classList.add('seleccionado');
     }
     
+}
+
+function idCliente(){
+    pedido.id = document.querySelector('#id').value;
 }
 
 function nombreCliente(){
@@ -241,10 +253,11 @@ function mostrarResumen(){
 }
 
 async function realizarPedido(){
-    const {nombre,fecha,hora,servicios} = pedido;
+    const {nombre,fecha,hora,servicios,id,idpedidos} = pedido;
     const idservicios = servicios.map(servicio => servicio.idservicios);
     const datos = new FormData();
-    datos.append('nombre',nombre);
+    datos.append('idpedidos',idpedidos);
+    datos.append('usuarioid',id);
     datos.append('fecha',fecha);
     datos.append('hora',hora);
     datos.append('servicios',idservicios);

@@ -43,6 +43,7 @@
                     type="time"
                 >
             </div>
+            <input type="hidden" id="id" value="<?php echo $id; ?>">
         </form>
         <p class="text-center">Coloca tus datos y fecha de tu pedido</p>
     </div>
